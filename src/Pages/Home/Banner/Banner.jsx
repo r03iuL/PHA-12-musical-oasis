@@ -20,13 +20,13 @@ const Banner = () => {
         <h3><img src="https://images.pexels.com/photos/290660/pexels-photo-290660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/290660/pexels-photo-290660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src="https://images.pexels.com/photos/51360/keyboard-instrument-music-old-antique-51360.jpeg" /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/290660/pexels-photo-290660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src="https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/290660/pexels-photo-290660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src="https://images.pexels.com/photos/7285468/pexels-photo-7285468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
       </div>
       
     </Slider>

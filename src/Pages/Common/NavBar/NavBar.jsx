@@ -1,17 +1,26 @@
-import logo from "../../../../public/Logo_2.png";
+import { Link } from "react-router-dom";
+import logo from "../../../../public/Logo.png";
+
 
 const NavBar = () => {
   const NavItems = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link to={`/`}>Homee</Link>
       </li>
       <li>
-        <a>Parent</a>
+        <Link to={`/Instructors`}>Instructors</Link>
       </li>
       <li>
-        <a>Item 3</a>
+        <Link to={`/Classes`}> Classes</Link>
       </li>
+      <li>
+        <Link to={`/Dashboard`}>Dashboard </Link>
+      </li>
+      <li>
+        <Link to={`/Register`}> Register </Link>
+      </li>
+      
     </>
   );
   return (
@@ -43,12 +52,12 @@ const NavBar = () => {
             </ul>
           </div>
           <img
+            // className="sm:hidden"
             src={logo}
             alt="logo"
             style={{
-              height: 100
+              height: 80,
             }}
-            //className="sm:hidden"
           />
           <a className="btn btn-ghost normal-case text-xl">Musical Oasis</a>
         </div>
@@ -56,7 +65,8 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{NavItems}</ul>
         </div>
         <div className="navbar-end">
-          <a className="btn">Button</a>
+          <Link className="btn">Log In</Link>
+          
         </div>
       </div>
     </div>

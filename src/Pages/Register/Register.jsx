@@ -1,5 +1,5 @@
 
-const ClassDisplay = () => {
+const Register = () => {
     return (
         <div>
             
@@ -7,4 +7,4 @@ const ClassDisplay = () => {
     );
 };
 
-export default ClassDisplay;
+export default Register;

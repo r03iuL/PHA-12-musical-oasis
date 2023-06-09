@@ -1,4 +1,4 @@
-import React from "react";
+import logo from "../../../../public/Logo_2.png";
 
 const NavBar = () => {
   const NavItems = (
@@ -39,15 +39,21 @@ const NavBar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52"
             >
-                {NavItems}
+              {NavItems}
             </ul>
           </div>
+          <img
+            src={logo}
+            alt="logo"
+            style={{
+              height: 100
+            }}
+            //className="sm:hidden"
+          />
           <a className="btn btn-ghost normal-case text-xl">Musical Oasis</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-          {NavItems}
-          </ul>
+          <ul className="menu menu-horizontal px-1">{NavItems}</ul>
         </div>
         <div className="navbar-end">
           <a className="btn">Button</a>

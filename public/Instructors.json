@@ -1,0 +1,72 @@
+[
+    {
+        "Name": "Sophia Martinez",
+        "Instructor_id": 1,
+        "Student_number": 17,
+        "Image_link": "https://example.com/instructor_1.jpg",
+        "Taken_classes": ["Flute", "Drums", "Trumpet", "Violin", "Saxophone", "Piano", "Guitar", "Harp", "Clarinet", "Cello"]
+    },
+    {
+        "Name": "Michael Johnson",
+        "Instructor_id": 2,
+        "Student_number": 10,
+        "Image_link": "https://example.com/instructor_2.jpg",
+        "Taken_classes": ["Saxophone", "Clarinet", "Violin", "Guitar", "Piano", "Trumpet", "Cello", "Drums", "Harp", "Flute"]
+    },
+    {
+        "Name": "John Doe",
+        "Instructor_id": 3,
+        "Student_number": 13,
+        "Image_link": "https://example.com/instructor_3.jpg",
+        "Taken_classes": ["Drums", "Harp", "Guitar", "Piano", "Violin", "Cello", "Clarinet", "Flute", "Trumpet", "Saxophone"]
+    },
+    {
+        "Name": "David Thompson",
+        "Instructor_id": 4,
+        "Student_number": 14,
+        "Image_link": "https://example.com/instructor_4.jpg",
+        "Taken_classes": ["Piano", "Guitar", "Flute", "Harp", "Trumpet", "Saxophone", "Violin", "Drums", "Clarinet", "Cello"]
+    },
+    {
+        "Name": "Robert Brown",
+        "Instructor_id": 5,
+        "Student_number": 9,
+        "Image_link": "https://example.com/instructor_5.jpg",
+        "Taken_classes": ["Clarinet", "Violin", "Harp", "Saxophone", "Drums", "Guitar", "Flute", "Trumpet", "Cello", "Piano"]
+    },
+    {
+        "Name": "Jane Smith",
+        "Instructor_id": 6,
+        "Student_number": 8,
+        "Image_link": "https://example.com/instructor_6.jpg",
+        "Taken_classes": ["Flute", "Trumpet", "Guitar", "Saxophone", "Drums", "Harp", "Violin", "Clarinet", "Cello", "Piano"]
+    },
+    {
+        "Name": "Emily Davis",
+        "Instructor_id": 7,
+        "Student_number": 18,
+        "Image_link": "https://example.com/instructor_7.jpg",
+        "Taken_classes": ["Trumpet", "Saxophone", "Cello", "Guitar", "Flute", "Piano", "Drums", "Clarinet", "Harp", "Violin"]
+    },
+    {
+        "Name": "Daniel Anderson",
+        "Instructor_id": 8,
+        "Student_number": 15,
+        "Image_link": "https://example.com/instructor_8.jpg",
+        "Taken_classes": ["Harp", "Violin", "Guitar", "Flute", "Trumpet", "Saxophone", "Drums", "Clarinet", "Piano", "Cello"]
+    },
+    {
+        "Name": "Olivia Wilson",
+        "Instructor_id": 9,
+        "Student_number": 12,
+        "Image_link": "https://example.com/instructor_9.jpg",
+        "Taken_classes": ["Guitar", "Piano", "Harp", "Flute", "Cello", "Trumpet", "Saxophone", "Drums", "Clarinet", "Violin"]
+    },
+    {
+        "Name": "Mia Taylor",
+        "Instructor_id": 10,
+        "Student_number": 7,
+        "Image_link": "https://example.com/instructor_10.jpg",
+        "Taken_classes": ["Cello", "Flute", "Guitar", "Piano", "Clarinet", "Saxophone", "Harp", "Drums", "Violin", "Trumpet"]
+    }
+]

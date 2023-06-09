@@ -11,16 +11,29 @@ const PopularInstructors = () => {
 
   return (
     <div>
-      <p className="border-b-4 border-indigo-500 mx-auto text-center p-10">
-        Popular Instructors
+     <p className="border-y-4 border-indigo-500 mx-auto text-center p-10 text-5xl font-bold">
+        | Popular Instructors |
       </p>
-        <div className="carousel carousel-center max-w-md p-4 space-x-4 bg-neutral rounded-box">
-      {instructors.map(instructor => (
-        <div key={instructor.Instructor_id} className="carousel-item w-full">
-          <img src={instructor.Image_link} alt={instructor.Name} />
-        </div>
-      ))}
-    </div>
+      <div className="py-10 grid grid-cols-3 gap-8">
+        {instructors.map((instructors, index) => (
+          <div key={index} className="card  bg-base-100 shadow-xl">
+            <figure>
+              <img
+                src={instructors.Image_link}
+                alt={instructors.Name}
+                className="rounded-full h-3/4"
+              />
+            </figure>
+            <div className="card-body">
+              <h2 className="card-title">{instructors.Name}</h2>
+              <p>Students:{instructors.Student_number}</p>
+              <div className="card-actions justify-end">
+                <button className="btn btn-primary">Details</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

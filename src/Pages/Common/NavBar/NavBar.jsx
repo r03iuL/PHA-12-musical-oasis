@@ -6,26 +6,26 @@ const NavBar = () => {
   const NavItems = (
     <>
       <li>
-        <Link to={`/`}>Home</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/`}>Home</Link>
       </li>
       <li>
-        <Link to={`/Instructors`}>Instructors</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Instructors`}>Instructors</Link>
       </li>
       <li>
-        <Link to={`/Classes`}> Classes</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Classes`}> Classes</Link>
       </li>
       <li>
-        <Link to={`/Dashboard`}>Dashboard </Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Dashboard`}>Dashboard </Link>
       </li>
       <li>
-        <Link to={`/Register`}> Register </Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Register`}> Register </Link>
       </li>
       
     </>
   );
   return (
     <div>
-      <div className="navbar bg-base-100">
+      <div className="navbar bg-base-100 py-5">
         <div className="navbar-start">
           <div className="dropdown">
             <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -59,7 +59,7 @@ const NavBar = () => {
               height: 80,
             }}
           />
-          <a className="btn btn-ghost normal-case text-xl">Musical Oasis</a>
+          <a className=" normal-case text-4xl">Musical Oasis</a>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{NavItems}</ul>

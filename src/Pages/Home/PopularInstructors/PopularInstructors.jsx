@@ -11,10 +11,10 @@ const PopularInstructors = () => {
 
   return (
     <div>
-     <p className="border-y-4 border-indigo-500 mx-auto text-center p-10 text-5xl font-bold">
+     <p className="border-y-4 border-indigo-500 mx-auto text-center p-10 text-3xl font-bold">
         | Popular Instructors |
       </p>
-      <div className="py-10 grid grid-cols-3 gap-8">
+      <div className="py-10 grid grid-cols-3 gap-10">
         {instructors.map((instructors, index) => (
           <div key={index} className="card  bg-base-100 shadow-xl">
             <figure>

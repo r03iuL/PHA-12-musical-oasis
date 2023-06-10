@@ -1,7 +1,10 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-
+import img1 from "../../../assets/img (1).jpeg"
+import img2 from "../../../assets/img (2).jpeg"
+import img3 from "../../../assets/img (3).jpeg"
+import img4 from "../../../assets/img (4).jpeg"
 const Banner = () => {
   var settings = {
     dots: true,
@@ -12,21 +15,24 @@ const Banner = () => {
     arrows: false,
     autoplay: true,
     autoplaySpeed: 2000,
+    variableWidth: true ,
+    centerMode: true ,
+    
   };
 
   return (
-    <Slider {...settings} className="mx-4">
+    <Slider {...settings} >
       <div>
-        <h3><img src="https://images.pexels.com/photos/290660/pexels-photo-290660.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src={img1} /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/51360/keyboard-instrument-music-old-antique-51360.jpeg" /></h3>
+        <h3><img src={img2} /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/995301/pexels-photo-995301.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src={img3} /></h3>
       </div>
       <div>
-        <h3><img src="https://images.pexels.com/photos/7285468/pexels-photo-7285468.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" /></h3>
+        <h3><img src={img4} /></h3>
       </div>
       
     </Slider>

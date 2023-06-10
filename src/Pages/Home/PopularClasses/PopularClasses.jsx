@@ -9,10 +9,10 @@ const PopularClasses = () => {
   }, []);
   return (
     <div>
-      <p className="border-y-4 border-indigo-500 mx-auto text-center p-10 text-5xl font-bold">
+      <p className="border-y-4 border-indigo-500 mx-auto text-center mt-10 p-10 text-3xl font-bold">
        | Popular Classes |
       </p>
-      <div className="grid grid-cols-3 gap-4 py-10">
+      <div className="grid grid-cols-3 gap-10 py-10">
         {classes.map((item) => (
           <div key={item.Class_id} className="card w-96 glass">
             <figure>

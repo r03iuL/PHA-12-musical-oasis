@@ -13,10 +13,10 @@ const Footer = () => {
             }}
             //className="sm:hidden"
           />
-          <p>
-            ACME Industries Ltd.
+          <p className='text-3xl font-semibold'>
+            M U S I C A L
             <br />
-            Providing reliable tech since 1992
+            O A S I S.
           </p>
         </div>
         <div>
@@ -42,7 +42,7 @@ const Footer = () => {
       </div>
       <footer className="footer footer-center p-4 bg-base-300 text-base-content">
         <div>
-          <p>Copyright © 2023 - All right reserved by ACME Industries Ltd</p>
+          <p>Copyright © 2023 - All right reserved by Musical Oasis.</p>
         </div>
       </footer>
     </footer>

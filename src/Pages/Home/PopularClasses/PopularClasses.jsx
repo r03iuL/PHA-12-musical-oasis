@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 
 const PopularClasses = () => {
   const [classes, setClasses] = useState([]);
+
   useEffect(() => {
     fetch("Classes.json")
       .then((res) => res.json())
       .then((data) => setClasses(data));
   }, []);
+
   return (
     <div>
-      <p className="border-y-4 border-indigo-500 mx-auto text-center mt-10 p-10 text-3xl font-bold">
-       | Popular Classes |
+      <p className="border-b-4 border-indigo-500 mx-auto text-center mt-10 p-10 text-3xl font-bold">
+        | Popular Classes |
       </p>
-      <div className="grid grid-cols-3 gap-10 py-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 py-10">
         {classes.map((item) => (
-          <div key={item.Class_id} className="card w-96 glass">
+          <div key={item.Class_id} className="card w-full md:w-96 glass">
             <figure>
               <img src={item.Image_link} alt={item.Name} />
             </figure>

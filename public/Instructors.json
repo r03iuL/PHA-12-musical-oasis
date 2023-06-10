@@ -1,182 +1,82 @@
 [
   {
     "Name": "Sophia Martinez",
+    "Email": "sophia.martinez@example.com",
     "Instructor_id": 1,
     "Student_number": 17,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Flute",
-      "Drums",
-      "Trumpet",
-      "Violin",
-      "Saxophone",
-      "Piano",
-      "Guitar",
-      "Harp",
-      "Clarinet",
-      "Cello"
-    ]
+    "Taken_classes": ["Flute", "Drums", "Trumpet"]
   },
   {
     "Name": "Michael Johnson",
+    "Email": "michael.johnson@example.com",
     "Instructor_id": 2,
     "Student_number": 10,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Saxophone",
-      "Clarinet",
-      "Violin",
-      "Guitar",
-      "Piano",
-      "Trumpet",
-      "Cello",
-      "Drums",
-      "Harp",
-      "Flute"
-    ]
+    "Taken_classes": ["Saxophone", "Clarinet", "Violin"]
   },
   {
     "Name": "John Doe",
+    "Email": "john.doe@example.com",
     "Instructor_id": 3,
     "Student_number": 13,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Drums",
-      "Harp",
-      "Guitar",
-      "Piano",
-      "Violin",
-      "Cello",
-      "Clarinet",
-      "Flute",
-      "Trumpet",
-      "Saxophone"
-    ]
+    "Taken_classes": ["Drums", "Harp", "Guitar"]
   },
   {
     "Name": "David Thompson",
+    "Email": "david.thompson@example.com",
     "Instructor_id": 4,
     "Student_number": 14,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Piano",
-      "Guitar",
-      "Flute",
-      "Harp",
-      "Trumpet",
-      "Saxophone",
-      "Violin",
-      "Drums",
-      "Clarinet",
-      "Cello"
-    ]
+    "Taken_classes": ["Piano", "Guitar", "Flute"]
   },
   {
     "Name": "Robert Brown",
+    "Email": "robert.brown@example.com",
     "Instructor_id": 5,
     "Student_number": 9,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Clarinet",
-      "Violin",
-      "Harp",
-      "Saxophone",
-      "Drums",
-      "Guitar",
-      "Flute",
-      "Trumpet",
-      "Cello",
-      "Piano"
-    ]
+    "Taken_classes": ["Clarinet", "Violin", "Harp"]
   },
   {
     "Name": "Jane Smith",
+    "Email": "jane.smith@example.com",
     "Instructor_id": 6,
     "Student_number": 8,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Flute",
-      "Trumpet",
-      "Guitar",
-      "Saxophone",
-      "Drums",
-      "Harp",
-      "Violin",
-      "Clarinet",
-      "Cello",
-      "Piano"
-    ]
+    "Taken_classes": ["Flute", "Trumpet", "Guitar"]
   },
   {
     "Name": "Emily Davis",
+    "Email": "emily.davis@example.com",
     "Instructor_id": 7,
     "Student_number": 18,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Trumpet",
-      "Saxophone",
-      "Cello",
-      "Guitar",
-      "Flute",
-      "Piano",
-      "Drums",
-      "Clarinet",
-      "Harp",
-      "Violin"
-    ]
+    "Taken_classes": ["Trumpet", "Saxophone", "Cello"]
   },
   {
     "Name": "Daniel Anderson",
+    "Email": "daniel.anderson@example.com",
     "Instructor_id": 8,
     "Student_number": 15,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Harp",
-      "Violin",
-      "Guitar",
-      "Flute",
-      "Trumpet",
-      "Saxophone",
-      "Drums",
-      "Clarinet",
-      "Piano",
-      "Cello"
-    ]
+    "Taken_classes": ["Harp", "Violin", "Guitar"]
   },
   {
     "Name": "Olivia Wilson",
+    "Email": "olivia.wilson@example.com",
     "Instructor_id": 9,
     "Student_number": 12,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Guitar",
-      "Piano",
-      "Harp",
-      "Flute",
-      "Cello",
-      "Trumpet",
-      "Saxophone",
-      "Drums",
-      "Clarinet",
-      "Violin"
-    ]
+    "Taken_classes": ["Guitar", "Piano", "Harp"]
   },
   {
     "Name": "Mia Taylor",
+    "Email": "mia.taylor@example.com",
     "Instructor_id": 10,
     "Student_number": 7,
     "Image_link": "https://images.pexels.com/photos/228842/pexels-photo-228842.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-    "Taken_classes": [
-      "Cello",
-      "Flute",
-      "Guitar",
-      "Piano",
-      "Clarinet",
-      "Saxophone",
-      "Harp",
-      "Drums",
-      "Violin",
-      "Trumpet"
-    ]
+    "Taken_classes": ["Cello", "Flute", "Guitar"]
   }
 ]

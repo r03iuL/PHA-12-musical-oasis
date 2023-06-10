@@ -62,7 +62,7 @@ const LogIn = () => {
                   </button>
 
                   <Link to={`/Register`} className="text-xl label-text-alt link link-hover">
-                    Dont have an account? SignUp. 
+                    Don&apos;t have an account? SignUp. 
                   </Link>
                 </div>
               </div>

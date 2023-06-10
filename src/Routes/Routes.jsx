@@ -6,6 +6,7 @@ import Instructors from './../Pages/Instructors/Instructors';
 import Dashboard from './../Pages/Dashboard/Dashboard';
 import Register from './../Pages/Register/Register';
 import LogIn from './../Pages/LogIn/LogIn';
+import Error from './../Pages/Error/Error';
 
 export const router = createBrowserRouter([
   {
@@ -51,4 +52,8 @@ export const router = createBrowserRouter([
   
   ],
   },
+  {
+    path:"*",
+    element:<Error></Error>
+  }
 ]);

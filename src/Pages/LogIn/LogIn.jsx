@@ -1,11 +1,15 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Providers/Authcontexts";
 import Swal from "sweetalert2";
 
 const LogIn = () => {
   const { signIn } = useContext(Authcontext);
-  const handleLogin = event => {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || "/";
+
+  const handleLogin = (event) => {
     event.preventDefault();
     const form = event.target;
     const email = form.email.value;
@@ -13,21 +17,17 @@ const LogIn = () => {
     console.log(email, password);
 
     signIn(email, password)
-    .then((result) => {
-      const user = result.user;
-      console.log(user);
-      form.reset();
-      Swal.fire(
-        '',
-        'You Have Logged In Successfully!',
-        'success'
-      )
-
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-  }
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        form.reset();
+        Swal.fire("", "You Have Logged In Successfully!", "success");
+        navigate(from, { replace: true });
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen">
@@ -80,16 +80,21 @@ const LogIn = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <input type="submit" className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
-                  value="Log in"/>
-                    
+                  <input
+                    type="submit"
+                    className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
+                    value="Log in"
+                  />
 
                   <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white">
                     Google LogIn
                   </button>
 
-                  <Link to={`/Register`} className="text-xl label-text-alt link link-hover">
-                    Don&apos;t have an account? SignUp. 
+                  <Link
+                    to={`/Register`}
+                    className="text-xl label-text-alt link link-hover"
+                  >
+                    Don&apos;t have an account? SignUp.
                   </Link>
                 </div>
               </div>

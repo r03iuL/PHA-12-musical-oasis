@@ -2,22 +2,27 @@ import { Link } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { Authcontext } from "../../Providers/Authcontexts";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
+    reset
   } = useForm();
 
   const { createUser } = useContext(Authcontext);
 
   const onSubmit = (data) => {
+    
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
     });
+    Swal.fire("", "You Have Logged In Successfully!", "success");
+    reset();
   };
   return (
     <div>

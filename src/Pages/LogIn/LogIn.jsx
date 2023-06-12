@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Providers/Authcontexts";
 import Swal from "sweetalert2";
+import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   const { signIn } = useContext(Authcontext);
@@ -9,18 +10,17 @@ const LogIn = () => {
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
-  const handleLogin = (event) => {
-    event.preventDefault();
-    const form = event.target;
-    const email = form.email.value;
-    const password = form.password.value;
+  const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const onSubmit = (data) => {
+    const { email, password } = data;
     console.log(email, password);
 
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
-        form.reset();
+        reset(); // Reset the form
         Swal.fire("", "You Have Logged In Successfully!", "success");
         navigate(from, { replace: true });
       })
@@ -28,6 +28,7 @@ const LogIn = () => {
         console.log(error);
       });
   };
+
   return (
     <div>
       <div className="hero min-h-screen">
@@ -40,7 +41,7 @@ const LogIn = () => {
             />
           </div>
           <div className="card p-12 flex-shrink-0 w-full lg:h-screen flex flex-col justify-center items-center shadow-2xl bg-base-100">
-            <form onSubmit={handleLogin} className="w-full max-w-lg">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-lg">
               <div className="card-body">
                 <div className="form-control">
                   <h1 className="text-center text-4xl mb-5 font-bold">
@@ -52,11 +53,14 @@ const LogIn = () => {
                     </span>
                   </label>
                   <input
-                    name="email"
+                    {...register("email", { required: true })}
                     type="email"
                     placeholder="Email"
                     className="input input-bordered text-xl"
                   />
+                  {errors.email?.type === "required" && (
+                    <span className="text-red-500">* This field is required!</span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -65,16 +69,16 @@ const LogIn = () => {
                     </span>
                   </label>
                   <input
-                    name="password"
+                    {...register("password", { required: true })}
                     type="password"
                     placeholder="Password"
                     className="input input-bordered text-xl"
                   />
+                  {errors.password?.type === "required" && (
+                    <span className="text-red-500">* This field is required!</span>
+                  )}
                   <label className="label">
-                    <a
-                      href="#"
-                      className="text-xl label-text-alt link link-hover"
-                    >
+                    <a href="#" className="text-xl label-text-alt link link-hover">
                       Forgot password?
                     </a>
                   </label>

@@ -1,6 +1,25 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { Authcontext } from "../../Providers/Authcontexts";
 
 const LogIn = () => {
+  const { signIn } = useContext(Authcontext);
+  const handleLogin = event => {
+    event.preventDefault();
+    const form = event.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(email, password);
+    signIn(email, password)
+    .then((result) => {
+      const user = result.user;
+      console.log(user);
+      form.reset();
+    })
+    .catch((error) => {
+      console.log(error);
+    });
+  }
   return (
     <div>
       <div className="hero min-h-screen">
@@ -13,7 +32,7 @@ const LogIn = () => {
             />
           </div>
           <div className="card p-12 flex-shrink-0 w-full lg:h-screen flex flex-col justify-center items-center shadow-2xl bg-base-100">
-            <form className="w-full max-w-lg">
+            <form onSubmit={handleLogin} className="w-full max-w-lg">
               <div className="card-body">
                 <div className="form-control">
                   <h1 className="text-center text-4xl mb-5 font-bold">
@@ -26,7 +45,7 @@ const LogIn = () => {
                   </label>
                   <input
                     name="email"
-                    type="text"
+                    type="email"
                     placeholder="Email"
                     className="input input-bordered text-xl"
                   />
@@ -39,7 +58,7 @@ const LogIn = () => {
                   </label>
                   <input
                     name="password"
-                    type="text"
+                    type="password"
                     placeholder="Password"
                     className="input input-bordered text-xl"
                   />
@@ -53,9 +72,9 @@ const LogIn = () => {
                   </label>
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white">
-                    Login
-                  </button>
+                  <input type="submit" className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
+                  value="Login"/>
+                    
 
                   <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white">
                     Google LogIn

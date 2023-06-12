@@ -1,6 +1,24 @@
 import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useContext } from "react";
+import { Authcontext } from "../../Providers/Authcontexts";
 
 const Register = () => {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
+  const { createUser } = useContext(Authcontext);
+
+  const onSubmit = (data) => {
+    console.log(data);
+    createUser(data.email, data.password).then((result) => {
+      const loggedUser = result.user;
+      console.log(loggedUser);
+    });
+  };
   return (
     <div>
       <div className="hero min-h-screen">
@@ -13,12 +31,31 @@ const Register = () => {
             />
           </div>
           <div className="card p-12 flex-shrink-0 w-full lg:h-screen flex flex-col justify-center items-center shadow-2xl bg-base-100">
-            <form className="w-full">
+            <form onSubmit={handleSubmit(onSubmit)} className="w-full">
               <div className="card-body">
+                <h1 className="text-center text-4xl mb-5 font-bold">
+                  Sign Up!!
+                </h1>
                 <div className="form-control">
-                  <h1 className="text-center text-4xl mb-5 font-bold">
-                    Sign Up!!
-                  </h1>
+                  <label className="label">
+                    <span className="text-xl label-text font-semibold">
+                      Name
+                    </span>
+                  </label>
+                  <input
+                    name="name"
+                    {...register("name", { required: true })}
+                    type="text"
+                    placeholder="Enter Your Name"
+                    className="input input-bordered text-xl"
+                  />
+                  {errors.name?.type === "required" && (
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
+                  )}
+                </div>
+                <div className="form-control">
                   <label className="label">
                     <span className="text-xl label-text font-semibold">
                       Email
@@ -26,10 +63,16 @@ const Register = () => {
                   </label>
                   <input
                     name="email"
-                    type="text"
-                    placeholder="Email"
+                    {...register("email", { required: true })}
+                    type="email"
+                    placeholder="Enter Your Email"
                     className="input input-bordered text-xl"
                   />
+                  {errors.email?.type === "required" && (
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -39,10 +82,31 @@ const Register = () => {
                   </label>
                   <input
                     name="password"
-                    type="text"
-                    placeholder="Password"
+                    {...register("password", {
+                      required: true,
+                      minLength: 6,
+                      pattern: /(?=.*[A-Z])(?=.*[!@#$&*])/,
+                    })}
+                    type="password"
+                    placeholder="Enter Password"
                     className="input input-bordered text-xl"
                   />
+                  {errors.password?.type === "required" && (
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
+                  )}
+                  {errors.password?.type === "minLength" && (
+                    <span className="text-red-500">
+                      * Minimum 6 character is required!
+                    </span>
+                  )}
+                  {errors.password?.type === "pattern" && (
+                    <span className="text-red-500">
+                      * Minimum 1 special character and 1 capital letter is
+                      required!
+                    </span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -52,10 +116,16 @@ const Register = () => {
                   </label>
                   <input
                     name="conPassword"
-                    type="text"
+                    {...register("conPassword", { required: true })}
+                    type="password"
                     placeholder="Confirm Password"
                     className="input input-bordered text-xl"
                   />
+                  {errors.conPassword?.type === "required" && (
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
+                  )}
                 </div>
                 <div className="form-control">
                   <label className="label">
@@ -66,15 +136,20 @@ const Register = () => {
                   <input
                     name="photo"
                     type="text"
-                    placeholder="Password"
+                    placeholder="Enter Photo URL"
                     className="input input-bordered text-xl"
                   />
                 </div>
                 <div className="form-control mt-6">
-                  <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white">
-                    Register
-                  </button>
-                  <Link to={`/LogIn`} className="text-xl label-text-alt link link-hover" >
+                  <input
+                    type="submit" value="Sign Up"
+                    className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white"
+                  />
+
+                  <Link
+                    to={`/LogIn`}
+                    className="text-xl label-text-alt link link-hover"
+                  >
                     Already have an account yet? Log In
                   </Link>
                 </div>

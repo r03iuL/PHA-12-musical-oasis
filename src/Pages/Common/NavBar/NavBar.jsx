@@ -1,26 +1,54 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/Logo.png";
-
+import { useContext } from "react";
+import { Authcontext } from "../../../Providers/Authcontexts";
 
 const NavBar = () => {
+  const { user,logOut } = useContext(Authcontext);
+  const handlelogOut = () =>{
+    logOut()
+      .then()
+      .catch((error) => console.log(error))
+  }
   const NavItems = (
     <>
       <li>
-        <Link className="mx-2 text-xl font-semibold" to={`/`}>Home</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/`}>
+          Home
+        </Link>
       </li>
       <li>
-        <Link className="mx-2 text-xl font-semibold" to={`/Instructors`}>Instructors</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Instructors`}>
+          Instructors
+        </Link>
       </li>
       <li>
-        <Link className="mx-2 text-xl font-semibold" to={`/Classes`}> Classes</Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Classes`}>
+          {" "}
+          Classes
+        </Link>
       </li>
       <li>
-        <Link className="mx-2 text-xl font-semibold" to={`/Dashboard`}>Dashboard </Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Dashboard`}>
+          Dashboard{" "}
+        </Link>
       </li>
       <li>
-        <Link className="mx-2 text-xl font-semibold" to={`/Register`}> Register </Link>
+        <Link className="mx-2 text-xl font-semibold" to={`/Register`}>
+          {" "}
+          Register{" "}
+        </Link>
       </li>
-      
+      {user ? (
+        <>
+        <button className="btn btn-ghost"  onClick={handlelogOut} >LogOut</button></>
+      ) : (
+        <>
+          <Link className="btn" to={`/LogIn`}>
+            Log In
+          </Link>
+        </>
+      )}
     </>
   );
   return (
@@ -65,8 +93,6 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{NavItems}</ul>
         </div>
         <div className="navbar-end">
-          <Link className="btn" to={`/LogIn`} >Log In</Link>
-          
         </div>
       </div>
     </div>

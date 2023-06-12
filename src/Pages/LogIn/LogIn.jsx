@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Authcontext } from "../../Providers/Authcontexts";
+import Swal from "sweetalert2";
 
 const LogIn = () => {
   const { signIn } = useContext(Authcontext);
@@ -10,11 +11,18 @@ const LogIn = () => {
     const email = form.email.value;
     const password = form.password.value;
     console.log(email, password);
+
     signIn(email, password)
     .then((result) => {
       const user = result.user;
       console.log(user);
       form.reset();
+      Swal.fire(
+        '',
+        'You Have Logged In Successfully!',
+        'success'
+      )
+
     })
     .catch((error) => {
       console.log(error);
@@ -73,7 +81,7 @@ const LogIn = () => {
                 </div>
                 <div className="form-control mt-6">
                   <input type="submit" className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
-                  value="Login"/>
+                  value="Log in"/>
                     
 
                   <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white">

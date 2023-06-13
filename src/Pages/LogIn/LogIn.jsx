@@ -1,15 +1,18 @@
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Providers/Authcontexts";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
+import { app } from "../../Firebase/firebase.config";
+const auth = getAuth(app);
 const LogIn = () => {
-  const[show,setshow] = useState(false);
+  const [show, setshow] = useState(false);
   const { signIn, googleLogIn, setUser } = useContext(Authcontext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
+  const emailRef = useRef();
 
   const {
     register,
@@ -52,6 +55,21 @@ const LogIn = () => {
       });
   };
 
+  const handleResetPassword = () => {
+    const email = emailRef.current.value;
+    if (!email) {
+      alert("Please provide yopur email address to reset password! ");
+      return;
+    }
+    
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        alert("Please check your email .");
+      })
+      .catch((error) => {
+        setLoginError(error.message);
+      });
+  };
   return (
     <div>
       <div className="hero min-h-screen">
@@ -82,6 +100,7 @@ const LogIn = () => {
                     type="email"
                     placeholder="Email"
                     className="input input-bordered text-xl"
+                    ref={emailRef}
                   />
                   {errors.email?.type === "required" && (
                     <span className="text-red-500">
@@ -103,10 +122,20 @@ const LogIn = () => {
                     placeholder="Password"
                     className="input input-bordered text-xl"
                   />
-                  <p onClick={() => setshow(!show)}><small>
-                    {
-                      show ? <button className=" btn-link text-sm text-indigo-400" >Hide password</button> : <button  className=" btn-link text-sm text-indigo-400"> Show password</button>
-                    }</small></p>
+                  <p onClick={() => setshow(!show)}>
+                    <small>
+                      {show ? (
+                        <button className=" btn-link text-sm text-indigo-400">
+                          Hide password
+                        </button>
+                      ) : (
+                        <button className=" btn-link text-sm text-indigo-400">
+                          {" "}
+                          Show password
+                        </button>
+                      )}
+                    </small>
+                  </p>
                   {errors.password?.type === "required" && (
                     <span className="text-red-500">
                       * This field is required!
@@ -118,6 +147,7 @@ const LogIn = () => {
 
                   <label className="label">
                     <a
+                      onClick={handleResetPassword}
                       href="#"
                       className="text-xl label-text-alt link link-hover"
                     >

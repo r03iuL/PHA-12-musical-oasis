@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useContext } from "react";
 import { Authcontext } from "../../Providers/Authcontexts";
@@ -9,20 +9,26 @@ const Register = () => {
     register,
     handleSubmit,
     formState: { errors },
-    reset
+    reset,
   } = useForm();
 
-  const { createUser } = useContext(Authcontext);
+  const { createUser, updatUserProfile } = useContext(Authcontext);
+
+  const navigate = useNavigate();
 
   const onSubmit = (data) => {
-    
     console.log(data);
     createUser(data.email, data.password).then((result) => {
       const loggedUser = result.user;
       console.log(loggedUser);
+      updatUserProfile(data.name, data.photoURL)
+        .then(() => {
+          reset();
+          Swal.fire("", "You Have Logged In Successfully!", "success");
+          navigate('/');
+        })
+        .catch((error) => console.log(error));
     });
-    Swal.fire("", "You Have Logged In Successfully!", "success");
-    reset();
   };
   return (
     <div>
@@ -140,14 +146,21 @@ const Register = () => {
                   </label>
                   <input
                     name="photo"
+                    {...register("photo", { required: true })}
                     type="text"
                     placeholder="Enter Photo URL"
                     className="input input-bordered text-xl"
                   />
+                  {errors.photo?.type === "required" && (
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
+                  )}
                 </div>
                 <div className="form-control mt-6">
                   <input
-                    type="submit" value="Sign Up"
+                    type="submit"
+                    value="Sign Up"
                     className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white"
                   />
 

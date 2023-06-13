@@ -5,12 +5,26 @@ import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 
 const LogIn = () => {
-  const { signIn } = useContext(Authcontext);
+  const { signIn, googleLogIn,setUser } = useContext(Authcontext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
 
   const { register, handleSubmit, formState: { errors }, reset } = useForm();
+
+  const handleGoogle = () => {
+    googleLogIn()
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+        Swal.fire("", "You Have Logged In Successfully!", "success");
+        navigate(from, { replace: true });
+        setUser(user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   const onSubmit = (data) => {
     const { email, password } = data;
@@ -53,13 +67,17 @@ const LogIn = () => {
                     </span>
                   </label>
                   <input
-                    {...register("email", { required: true })}
+                    {...register("email", {
+                      required: true,
+                    })}
                     type="email"
                     placeholder="Email"
                     className="input input-bordered text-xl"
                   />
                   {errors.email?.type === "required" && (
-                    <span className="text-red-500">* This field is required!</span>
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
                   )}
                 </div>
                 <div className="form-control">
@@ -69,16 +87,23 @@ const LogIn = () => {
                     </span>
                   </label>
                   <input
-                    {...register("password", { required: true })}
+                    {...register("password", {
+                      required:true ,
+                    })}
                     type="password"
                     placeholder="Password"
                     className="input input-bordered text-xl"
                   />
                   {errors.password?.type === "required" && (
-                    <span className="text-red-500">* This field is required!</span>
+                    <span className="text-red-500">
+                      * This field is required!
+                    </span>
                   )}
                   <label className="label">
-                    <a href="#" className="text-xl label-text-alt link link-hover">
+                    <a
+                      href="#"
+                      className="text-xl label-text-alt link link-hover"
+                    >
                       Forgot password?
                     </a>
                   </label>
@@ -90,7 +115,10 @@ const LogIn = () => {
                     value="Log in"
                   />
 
-                  <button className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white">
+                  <button
+                    onClick={handleGoogle}
+                    className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white"
+                  >
                     Google LogIn
                   </button>
 

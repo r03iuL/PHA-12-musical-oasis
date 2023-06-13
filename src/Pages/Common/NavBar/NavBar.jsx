@@ -1,15 +1,20 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/Logo.png";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
 import { Authcontext } from "../../../Providers/Authcontexts";
 
 const NavBar = () => {
-  const { user,logOut } = useContext(Authcontext);
-  const handlelogOut = () =>{
+  const { user, logOut } = useContext(Authcontext);
+  const [currentUser, setCurrentUser] = useState(user);
+
+  useEffect(() => {
+    setCurrentUser(user);
+  }, [user]);
+  const handlelogOut = () => {
     logOut()
       .then()
-      .catch((error) => console.log(error))
-  }
+      .catch((error) => console.log(error));
+  };
   const NavItems = (
     <>
       <li>
@@ -39,16 +44,6 @@ const NavBar = () => {
           Register{" "}
         </Link>
       </li>
-      {user ? (
-        <>
-        <button className="btn btn-ghost"  onClick={handlelogOut} >LogOut</button></>
-      ) : (
-        <>
-          <Link className="btn" to={`/LogIn`}>
-            Log In
-          </Link>
-        </>
-      )}
     </>
   );
   return (
@@ -93,6 +88,29 @@ const NavBar = () => {
           <ul className="menu menu-horizontal px-1">{NavItems}</ul>
         </div>
         <div className="navbar-end">
+          {user ? (
+            <>
+              <div className="">
+
+                <button className="btn font-semibold">
+                  <img className="h-6 w-6 mr-2 rounded-full" src={user.photoURL} alt="" />
+                  {user?.displayName}
+                </button>
+              </div>
+              <button
+                className="btn mx-2 text-xl font-semibold"
+                onClick={handlelogOut}
+              >
+                LogOut
+              </button>
+            </>
+          ) : (
+            <>
+              <Link className="btn mx-2 text-xl font-semibold" to={`/LogIn`}>
+                Log In
+              </Link>
+            </>
+          )}
         </div>
       </div>
     </div>

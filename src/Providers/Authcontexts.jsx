@@ -1,28 +1,45 @@
 import { createContext, useEffect, useState } from "react";
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 import { app } from "../Firebase/firebase.config";
 
 export const Authcontext = createContext(null);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 const Authcontexts = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  const createUser = (email,password) => {
+  const createUser = (email, password) => {
     setLoading(true);
-    return createUserWithEmailAndPassword(auth,email,password)
+    return createUserWithEmailAndPassword(auth, email, password,);
+  };
+
+  const signIn = (email, password) => {
+    setLoading(true);
+    return signInWithEmailAndPassword(auth, email, password);
+  };
+
+  const googleLogIn =()=>{
+    // setLoading(true);
+     return signInWithPopup(auth, provider);
+   }
+
+  const logOut = () => {
+    setLoading(true);
+    signOut(auth).then(() => {
+      setLoading(false);
+      setUser(null);
+      window.location.reload(); // Reload the page
+    });
+  };
+
+  const updatUserProfile = (name,photo) =>{
+    return updateProfile(auth.currentUser, {
+        displayName: name, photoURL: photo
+      })
   }
 
-  const signIn = (email,password) =>{
-    setLoading(true);
-    return signInWithEmailAndPassword(auth,email,password);
-  }
-
-  const logOut = () =>{
-    setLoading(true);
-    return signOut(auth);
-  }
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentuser) => {
       setUser(currentuser);
@@ -30,12 +47,15 @@ const Authcontexts = ({ children }) => {
     });
     return unsubscribe();
   }, []);
+
   const autinfo = {
     user,
     loading,
     createUser,
     signIn,
-    logOut
+    logOut,
+    updatUserProfile,
+    googleLogIn
   };
 
   return (

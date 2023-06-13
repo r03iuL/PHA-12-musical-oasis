@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
 
 const LogIn = () => {
+  const[show,setshow] = useState(false);
   const { signIn, googleLogIn, setUser } = useContext(Authcontext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -98,10 +99,14 @@ const LogIn = () => {
                     {...register("password", {
                       required: true,
                     })}
-                    type="password"
+                    type={show ? "text" : "password"}
                     placeholder="Password"
                     className="input input-bordered text-xl"
                   />
+                  <p onClick={() => setshow(!show)}><small>
+                    {
+                      show ? <button className=" btn-link text-sm text-indigo-400" >Hide password</button> : <button  className=" btn-link text-sm text-indigo-400"> Show password</button>
+                    }</small></p>
                   {errors.password?.type === "required" && (
                     <span className="text-red-500">
                       * This field is required!

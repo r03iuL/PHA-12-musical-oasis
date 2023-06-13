@@ -10,6 +10,7 @@ const Register = () => {
     handleSubmit,
     formState: { errors },
     reset,
+    watch,
   } = useForm();
 
   const { createUser, updatUserProfile } = useContext(Authcontext);
@@ -30,6 +31,9 @@ const Register = () => {
         .catch((error) => console.log(error));
     });
   };
+
+  const password = watch("password");
+
   return (
     <div>
       <div className="hero min-h-screen">
@@ -109,13 +113,12 @@ const Register = () => {
                   )}
                   {errors.password?.type === "minLength" && (
                     <span className="text-red-500">
-                      * Minimum 6 character is required!
+                      * Minimum 6 characters are required!
                     </span>
                   )}
                   {errors.password?.type === "pattern" && (
                     <span className="text-red-500">
-                      * Minimum 1 special character and 1 capital letter is
-                      required!
+                      * Minimum 1 special character and 1 capital letter are required!
                     </span>
                   )}
                 </div>
@@ -127,15 +130,17 @@ const Register = () => {
                   </label>
                   <input
                     name="conPassword"
-                    {...register("conPassword", { required: true })}
+                    {...register("conPassword", {
+                      required: true,
+                      validate: (value) =>
+                        value === password || "Passwords do not match",
+                    })}
                     type="password"
                     placeholder="Confirm Password"
                     className="input input-bordered text-xl"
                   />
-                  {errors.conPassword?.type === "required" && (
-                    <span className="text-red-500">
-                      * This field is required!
-                    </span>
+                  {errors.conPassword && (
+                    <span className="text-red-500">{errors.conPassword.message}</span>
                   )}
                 </div>
                 <div className="form-control">
@@ -161,7 +166,7 @@ const Register = () => {
                   <input
                     type="submit"
                     value="Sign Up"
-                    className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white"
+                    className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
                   />
 
                   <Link

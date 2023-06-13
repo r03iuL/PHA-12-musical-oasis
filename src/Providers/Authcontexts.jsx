@@ -45,7 +45,7 @@ const Authcontexts = ({ children }) => {
       setUser(currentuser);
       setLoading(false);
     });
-    return unsubscribe();
+    return () => unsubscribe();
   }, []);
 
   const autinfo = {

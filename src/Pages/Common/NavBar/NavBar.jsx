@@ -1,15 +1,11 @@
 import { Link } from "react-router-dom";
 import logo from "../../../../public/Logo.png";
-import { useContext, useEffect, useState } from "react";
+import { useContext } from "react";
 import { Authcontext } from "../../../Providers/Authcontexts";
 
 const NavBar = () => {
   const { user, logOut } = useContext(Authcontext);
-  const [currentUser, setCurrentUser] = useState(user);
 
-  useEffect(() => {
-    setCurrentUser(user);
-  }, [user]);
   const handlelogOut = () => {
     logOut()
       .then()
@@ -75,7 +71,6 @@ const NavBar = () => {
             </ul>
           </div>
           <img
-            // className="sm:hidden"
             src={logo}
             alt="logo"
             style={{
@@ -98,7 +93,7 @@ const NavBar = () => {
                 </button>
               </div>
               <button
-                className="btn mx-2 text-xl font-semibold"
+                className="btn mx-2 text-lg font-semibold"
                 onClick={handlelogOut}
               >
                 LogOut
@@ -106,7 +101,7 @@ const NavBar = () => {
             </>
           ) : (
             <>
-              <Link className="btn mx-2 text-xl font-semibold" to={`/LogIn`}>
+              <Link className="btn mx-2 text-lg font-semibold" to={`/LogIn`}>
                 Log In
               </Link>
             </>

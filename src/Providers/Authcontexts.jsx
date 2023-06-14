@@ -29,8 +29,7 @@ const Authcontexts = ({ children }) => {
     setLoading(true);
     signOut(auth).then(() => {
       setLoading(false);
-      setUser(null);
-      window.location.reload(); // Reload the page
+      setUser(null); // Reload the page
     });
   };
 
@@ -55,7 +54,8 @@ const Authcontexts = ({ children }) => {
     signIn,
     logOut,
     updatUserProfile,
-    googleLogIn
+    googleLogIn,
+    setUser
   };
 
   return (

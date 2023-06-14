@@ -9,6 +9,12 @@ import LogIn from './../Pages/LogIn/LogIn';
 import Error from './../Pages/Error/Error';
 import Secrete from './../Secrete/Secrete';
 import PrivateRoutes from "./PrivateRoutes";
+import AddClass from "../Pages/Dashboard/AddClass";
+import MyStudent from "../Pages/Dashboard/MyStudent";
+import AllUsers from "../Pages/Dashboard/AllUsers";
+import ManageItems from "../Pages/Dashboard/ManageItems";
+import Payment from "../Pages/Dashboard/Payment/Payment";
+import PaymentHistory from "../Pages/Dashboard/PaymentHistory";
 
 export const router = createBrowserRouter([
   {
@@ -58,6 +64,36 @@ export const router = createBrowserRouter([
 
   
   ],
+  },
+  {
+    path:'Dashboard',
+    element: <PrivateRoutes><Dashboard></Dashboard></PrivateRoutes>,
+    children:[
+       {
+        path:'mystudent',
+        element:<MyStudent></MyStudent>
+       },
+       {
+        path:'allusers',
+        element:<AllUsers></AllUsers>
+       },
+       {
+        path:'addClass',
+        element:<AddClass></AddClass>
+       },
+       {
+        path:"manageitems",
+        element:<ManageItems></ManageItems>
+       },
+       {
+        path:"payment",
+        element:<Payment></Payment>
+       },
+       {
+        path:'paymenthistory',
+        element:<PaymentHistory></PaymentHistory>
+       }
+    ]
   },
   {
     path:"*",

@@ -1,92 +1,82 @@
 [
-    {
-        "Name": "Flute",
-        "Class_id": 1,
-        "Student_number": 8,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 50,
-        "Available_seats": 12,
-        "Instructor_name": "Sophia Martinez"
-    },
-    {
-        "Name": "Piano",
-        "Class_id": 2,
-        "Student_number": 12,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 70,
-        "Available_seats": 8,
-        "Instructor_name": "David Thompson"
-    },
-    {
-        "Name": "Violin",
-        "Class_id": 3,
-        "Student_number": 7,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 60,
-        "Available_seats": 13,
-        "Instructor_name": "Michael Johnson"
-    },
-    {
-        "Name": "Drums",
-        "Class_id": 4,
-        "Student_number": 19,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 40,
-        "Available_seats": 1,
-        "Instructor_name": "John Doe"
-    },
-    {
-        "Name": "Saxophone",
-        "Class_id": 5,
-        "Student_number": 15,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 55,
-        "Available_seats": 5,
-        "Instructor_name": "Michael Johnson"
-    },
-    {
-        "Name": "Guitar",
-        "Class_id": 6,
-        "Student_number": 5,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 45,
-        "Available_seats": 10,
-        "Instructor_name": "Jane Smith"
-    },
-    {
-        "Name": "Trumpet",
-        "Class_id": 7,
-        "Student_number": 11,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 50,
-        "Available_seats": 5,
-        "Instructor_name": "Sophia Martinez"
-    },
-    {
-        "Name": "Harp",
-        "Class_id": 8,
-        "Student_number": 20,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 75,
-        "Available_seats": 5,
-        "Instructor_name": "David Thompson"
-    },
-    {
-        "Name": "Clarinet",
-        "Class_id": 9,
-        "Student_number": 13,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 55,
-        "Available_seats": 7,
-        "Instructor_name": "John Doe"
-    },
-    {
-        "Name": "Cello",
-        "Class_id": 10,
-        "Student_number": 10,
-        "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
-        "Price": 65,
-        "Available_seats": 10,
-        "Instructor_name": "Jane Smith"
-    }
+  {
+    "Name": "Flute",
+    "Student_number": 8,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 50,
+    "Available_seats": 12,
+    "Instructor_name": "Sophia Martinez"
+  },
+  {
+    "Name": "Piano",
+    "Student_number": 12,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 70,
+    "Available_seats": 8,
+    "Instructor_name": "David Thompson"
+  },
+  {
+    "Name": "Violin",
+    "Student_number": 7,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 60,
+    "Available_seats": 13,
+    "Instructor_name": "Michael Johnson"
+  },
+  {
+    "Name": "Drums",
+    "Student_number": 19,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 40,
+    "Available_seats": 1,
+    "Instructor_name": "John Doe"
+  },
+  {
+    "Name": "Saxophone",
+    "Student_number": 15,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 55,
+    "Available_seats": 5,
+    "Instructor_name": "Michael Johnson"
+  },
+  {
+    "Name": "Guitar",
+    "Student_number": 5,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 45,
+    "Available_seats": 10,
+    "Instructor_name": "Jane Smith"
+  },
+  {
+    "Name": "Trumpet",
+    "Student_number": 11,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 50,
+    "Available_seats": 5,
+    "Instructor_name": "Sophia Martinez"
+  },
+  {
+    "Name": "Harp",
+    "Student_number": 20,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 75,
+    "Available_seats": 5,
+    "Instructor_name": "David Thompson"
+  },
+  {
+    "Name": "Clarinet",
+    "Student_number": 13,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 55,
+    "Available_seats": 7,
+    "Instructor_name": "John Doe"
+  },
+  {
+    "Name": "Cello",
+    "Student_number": 10,
+    "Image_link": "https://images.pexels.com/photos/4774440/pexels-photo-4774440.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1",
+    "Price": 65,
+    "Available_seats": 10,
+    "Instructor_name": "Jane Smith"
+  }
 ]

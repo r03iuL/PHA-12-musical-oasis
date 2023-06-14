@@ -6,7 +6,7 @@ const Instructors = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("Instructors.json")
+    fetch("http://localhost:5000/instructor")
       .then((response) => response.json())
       .then((data) => setInstructors(data));
   }, []);
@@ -31,7 +31,7 @@ const Instructors = () => {
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-10 text-white">
       {instructors.map((instructor) => (
         <div
-          key={instructor.Instructor_id}
+          key={instructor._id}
           className="card lg:card-side bg-base-100 shadow-xl p-5"
         >
           <figure>

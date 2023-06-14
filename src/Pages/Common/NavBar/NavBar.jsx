@@ -84,20 +84,9 @@ const NavBar = () => {
         <div className="navbar-end">
           {user ? (
             <>
-              {/* <div className="">
-                <button className="btn text-sm mx-2 font-semibold">
-                  <img
-                    className="h-6 w-6 mr-2 rounded-full"
-                    src={user.photoURL}
-                    alt=""
-                  />
-                  {user?.displayName}
-                </button>
-              </div> */}
-
               <button className="btn mx-2 font-semibold" onClick={handlelogOut}>
                 <img
-                  className="h-6 w-6 mr-2 rounded-full"
+                  className="h-6  mr-2 rounded-full"
                   src={user.photoURL}
                   alt=""
                 />

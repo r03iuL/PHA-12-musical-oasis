@@ -1,26 +1,23 @@
-import { useContext, useRef, useState } from "react";
+import { useContext, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Authcontext } from "../../Providers/Authcontexts";
 import Swal from "sweetalert2";
 import { useForm } from "react-hook-form";
-import { getAuth, sendPasswordResetEmail } from "firebase/auth";
-import { app } from "../../Firebase/firebase.config";
-const auth = getAuth(app);
+
 const LogIn = () => {
+  
+  const [loginError, setLoginError] = useState(null);
   const [show, setshow] = useState(false);
   const { signIn, googleLogIn, setUser } = useContext(Authcontext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from?.pathname || "/";
-  const emailRef = useRef();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm();
-  const [loginError, setLoginError] = useState(null);
 
   const handleGoogle = () => {
     googleLogIn()
@@ -39,7 +36,6 @@ const LogIn = () => {
   const onSubmit = (data) => {
     const { email, password } = data;
     console.log(email, password);
-
     signIn(email, password)
       .then((result) => {
         const user = result.user;
@@ -54,22 +50,7 @@ const LogIn = () => {
         console.log(error);
       });
   };
-
-  const handleResetPassword = () => {
-    const email = emailRef.current.value;
-    if (!email) {
-      alert("Please provide yopur email address to reset password! ");
-      return;
-    }
-    
-    sendPasswordResetEmail(auth, email)
-      .then(() => {
-        alert("Please check your email .");
-      })
-      .catch((error) => {
-        setLoginError(error.message);
-      });
-  };
+  
   return (
     <div>
       <div className="hero min-h-screen">
@@ -100,7 +81,6 @@ const LogIn = () => {
                     type="email"
                     placeholder="Email"
                     className="input input-bordered text-xl"
-                    ref={emailRef}
                   />
                   {errors.email?.type === "required" && (
                     <span className="text-red-500">
@@ -144,10 +124,8 @@ const LogIn = () => {
                   {loginError && (
                     <div className="text-red-500">{loginError}</div>
                   )}
-
                   <label className="label">
                     <a
-                      onClick={handleResetPassword}
                       href="#"
                       className="text-xl label-text-alt link link-hover"
                     >
@@ -161,14 +139,12 @@ const LogIn = () => {
                     className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl text-white"
                     value="Log in"
                   />
-
                   <button
                     onClick={handleGoogle}
                     className="btn border-2 border-indigo-800 my-4 bg-indigo-500 text-xl  text-white"
                   >
                     Google LogIn
                   </button>
-
                   <Link
                     to={`/Register`}
                     className="text-xl label-text-alt link link-hover"
@@ -184,5 +160,4 @@ const LogIn = () => {
     </div>
   );
 };
-
 export default LogIn;

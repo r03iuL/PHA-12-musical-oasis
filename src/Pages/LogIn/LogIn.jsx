@@ -1,55 +1,55 @@
-import { useContext, useState } from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Authcontext } from "../../Providers/Authcontexts";
-import Swal from "sweetalert2";
-import { useForm } from "react-hook-form";
+// import { useContext, useState } from "react";
+// import { Link, useLocation, useNavigate } from "react-router-dom";
+// import { Authcontext } from "../../Providers/Authcontexts";
+// import Swal from "sweetalert2";
+// import { useForm } from "react-hook-form";
 
 const LogIn = () => {
   
-  const [loginError, setLoginError] = useState(null);
-  const [show, setshow] = useState(false);
-  const { signIn, googleLogIn, setUser } = useContext(Authcontext);
-  const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-    reset,
-  } = useForm();
+  // const [loginError, setLoginError] = useState(null);
+  // const [show, setshow] = useState(false);
+  // const { signIn, googleLogIn, setUser } = useContext(Authcontext);
+  // const navigate = useNavigate();
+  // const location = useLocation();
+  // const from = location.state?.from?.pathname || "/";
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { errors },
+  //   reset,
+  // } = useForm();
 
-  const handleGoogle = () => {
-    googleLogIn()
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        Swal.fire("", "You Have Logged In Successfully!", "success");
-        navigate(from, { replace: true });
-        setUser(user);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  };
+  // const handleGoogle = () => {
+  //   googleLogIn()
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //       Swal.fire("", "You Have Logged In Successfully!", "success");
+  //       navigate(from, { replace: true });
+  //       setUser(user);
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // };
 
-  const onSubmit = (data) => {
-    const { email, password } = data;
-    console.log(email, password);
-    signIn(email, password)
-      .then((result) => {
-        const user = result.user;
-        console.log(user);
-        reset();
-        Swal.fire("", "You Have Logged In Successfully!", "success");
-        navigate(from, { replace: true });
-      })
-      .catch((error) => {
-        console.log(error);
-        setLoginError("Invalid email or password");
-        console.log(error);
-      });
-  };
+  // const onSubmit = (data) => {
+  //   const { email, password } = data;
+  //   console.log(email, password);
+  //   signIn(email, password)
+  //     .then((result) => {
+  //       const user = result.user;
+  //       console.log(user);
+  //       reset();
+  //       Swal.fire("", "You Have Logged In Successfully!", "success");
+  //       navigate(from, { replace: true });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //       setLoginError("Invalid email or password");
+  //       console.log(error);
+  //     });
+  // };
   
   return (
     <div>

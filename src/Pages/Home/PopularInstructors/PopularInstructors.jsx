@@ -6,7 +6,7 @@ const PopularInstructors = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructor")
+    fetch("https://musical-oasis-server.vercel.app/instructor")
       .then((res) => res.json())
       .then((data) => {
         // Sort instructors based on the number of students

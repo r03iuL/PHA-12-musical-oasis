@@ -4,13 +4,14 @@ import useCart from "../../Hook/useCart";
 import useAdmin from "../../Hook/useAdmin";
 import ManageItems from './ManageItems';
 import NavBar from "../Common/NavBar/NavBar";
-
+import data from "../../Providers/Authcontexts.jsx"
 
 function Dashboard() {
   const [cart] = useCart();
-  
+  const {user} = data;
+
   const [isAdmin] = useAdmin();
-  // const isAdmin = true;
+  // const isAdmin = false;
   return (
     <div className="drawer lg:drawer-open ">
       <input id="my-drawer-2" type="checkbox" className="drawer-toggle" />

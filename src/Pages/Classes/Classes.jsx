@@ -8,7 +8,7 @@ const Classes = () => {
   const [classes, setClasses] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/populer")
+    fetch("https://musical-oasis-server.vercel.app/populer")
       .then((response) => response.json())
       .then((data) => setClasses(data));
   }, []);
@@ -28,7 +28,7 @@ const Classes = () => {
         Price,
         email: user.email,
       };
-      fetch("http://localhost:5000/carts", {
+      fetch("https://musical-oasis-server.vercel.app/carts", {
         method: "POST",
         headers: {
           "content-type": "application/json",

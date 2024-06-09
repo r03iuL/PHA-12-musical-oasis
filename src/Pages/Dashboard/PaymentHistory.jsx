@@ -3,7 +3,7 @@ import  { useEffect, useState } from 'react'
 function PaymentHistory() {
     const [payments,setPayments]= useState([])
     useEffect(()=>{
-        fetch('http://localhost:5000/payments')
+        fetch('https://musical-oasis-server.vercel.app/payments')
         .then(res=>res.json())
         .then(data=>setPayments(data))
     },[])

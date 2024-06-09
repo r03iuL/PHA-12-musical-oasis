@@ -6,7 +6,7 @@ const Instructors = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
-    fetch("http://localhost:5000/instructor")
+    fetch("https://musical-oasis-server.vercel.app/instructor")
       .then((response) => response.json())
       .then((data) => setInstructors(data));
   }, []);

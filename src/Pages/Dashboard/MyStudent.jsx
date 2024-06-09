@@ -7,6 +7,13 @@ import useCart from '../../Hook/useCart';
 
 function MyStudent() {
   const [cart,refetch] = useCart();
+  if (!Array.isArray(cart)) {
+    // Handle the case where `cart` is not an array
+    // You can log an error message or take appropriate action
+    console.error("Invalid cart data. Expected an array.");
+    return null; // Or return a fallback component, display an error message, etc.
+  }
+  
   const hendeldelete=item =>{
     console.log(item._id)
     Swal.fire({
@@ -20,7 +27,7 @@ function MyStudent() {
     }).then((result) => {
       if (result.isConfirmed) {
         
-        fetch(`http://localhost:5000/carts/${item._id}`,{
+        fetch(`https://musical-oasis-server.vercel.app/carts/${item._id}`,{
           method:"DELETE"
         })
         .then(res=>res.json())
@@ -38,6 +45,7 @@ function MyStudent() {
       }
     })
   }
+  console.log(cart);
   
   const total = cart.reduce((sum, item) => item.price + sum, 0);
   return (
